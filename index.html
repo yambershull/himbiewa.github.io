@@ -1,97 +1,43 @@
+
 <!doctype html>
 <html>
 <head>
-<title>Reaction Test</title>
-
+<title>Go to Himbiewa.com</title>
 <style>
-#board {
-border:1px solid lightgreen;
-background-color:red;
-height: 550px;
-width: 1285px;
+p {
+text-align: center;
+background-color:#9DFAC2;
+color:red;
 }
-.character {
-background-color:seagreen;
-background-size: cover;
-//background-color: lightgreen;
-width: 225px;
-height:225px;
-padding:10px;
-margin: 10px;
-float: left;
-
-}
-.thief {
-background-color:lightblue;
-background-size: cover;
-//background-color: lightblue;
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
 </head>
-<body style=background:lightgreen;>
-
-<h1>The Himbiewa Reaction Test</h1>
-<p>Instructions:You will be testing your reactions by playing this game. when you press play, simply just click on the odd one out. you can click on it more than once, but if you click on the other cards, you will lose points. This repeats 12 times. reload the page to play again.	</p><br/>
-<p>These are your ranks based on your score:<br/>
-12 or more:Awesomecooldude <br/>
-9-11:Expert <br/>
-5-8: Amateur <br/>
-1-4:Beginner <br/>
-0 or less:please try again...</p>
-<input type="button" value="PLAY!" onclick="startGame()";/>
-<div id="board">
-<div class="character">1</div>
-<div class="character">2</div>
-<div class="character"> 3</div>
-<div class="character"> 4</div>
-<div class="character">5</div>
-<div class="character"> 6</div>
+<body style=background-color:#9DFAC2>
+<h1>Himbiewa</h1> <div style=float:center><a href="todolist.html">To do list</a></div> <div style=float:right;><a href="reactiongame.html">Himbiewa Reaction Test</a></div>
+<h2>kaboom pigs origin by himbiewa</h2>
+<p> Before kaboom pig was kaboom pig, Kaboom pig was a normal pig just like any other pig until one day, his farm that he lived on went KABOOM! nobody knows how...<br/>
+He went flying in to the clouds, which some how formed wings on his back. he then flew down to the ground where the lord of kaboom gave him the gift of kaboom. then the pig fell asleep.<br/>
+When he woke up an evil farmer was trying to eat him, so he flew away and built a house. Now, for some reason, whenever kaboom pig hears Kaboom!, he flies off toward it.</p>
+<p>please enter password to visit himbiewa.com</p>
+<p>Password:<input id="passwordBox" type="password"/></p>
+<div style=text-align:center>
+<a href="https://sites.google.com/view/himbiewa-com/home" onclick="return checkPassword();">sumbit password to go to himbiewa.com</a>
 </div>
 <script>
-function startGame() {
-gameLoop();
+function checkPassword() {
+   var password= document.getElementById ("passwordBox");
+   var passwordText= password.value;
+if(passwordText== "ohfungioh"){
+return true;
+ }
+alert("Access denied! Please try again.");
+return false;
 }
-var loops = 0;
-var peopleVisible = false;
-var gameScore = 0;
-function gameLoop() {
-peopleVisible = !peopleVisible;
-createCharacters();
-loops++;
-if(loops < 12) {
-setTimeout(gameLoop, 800);
-}
-else {
-alert("You scored " + gameScore);
-}
-}
-function flashCharacters() {
-var board = document.getElementById("board");
-var classToSet = peopleVisible ? "character visible":"character hidden";
-for(var index = 0; index < 6; index++) {
-board.children[index].className = classToSet;
-}
-}
-//this is right
-
-function createCharacters() {
-var board = document.getElementById("board");
-var classToSet = peopleVisible ? "character visible" : "character hidden";
-for(var index = 0; index < 6; index ++) {
-board.children[index].className = classToSet;
-board.children[index].innerHTML = "";
-board.children[index].onclick = function() {
-gameScore += -2;
-}
-}
-var randomNumber = Math.floor(Math.random() * 6) + 1;
-board.children[randomNumber-1].innerHTML = "";
-board.children[randomNumber-1].onclick = function() {
-gameScore++;
-}
-board.children[randomNumber-1].className = classToSet + " thief";
-}
-
 </script>
+<img src="C:\Users\Ishaan\Desktop\Website\webthing.jpg" alt="HIMBIEWA" class="center">
 </body>
 </html>
